@@ -73,6 +73,7 @@ public class BancoDados {
     }
 
     public long inserePersonagem(String nome, int forca, int inteligencia, int agilidade, String classe) {
+        abrir();
         ContentValues campos = new ContentValues();
         campos.put(KEY_NOME, nome);
         campos.put(KEY_FORCA, forca);
@@ -88,6 +89,7 @@ public class BancoDados {
     }
 
     public int atualizarPersonagem(long id, String nome, int forca, int inteligencia, int agilidade, String classe) {
+        abrir();
         ContentValues campos = new ContentValues();
         campos.put(KEY_NOME, nome);
         campos.put(KEY_FORCA, forca);
@@ -97,11 +99,8 @@ public class BancoDados {
         return db.update(NOME_TABELA, campos, KEY_ID + " = ?", new String[]{String.valueOf(id)});
     }
 
-    public Cursor pesquisarPersonagemPorId(long id) {
-        String[] colunas = {KEY_ID, KEY_NOME, KEY_FORCA, KEY_INTELIGENCIA, KEY_AGILIDADE, KEY_CLASSE};
-        String where = KEY_ID + " = ?";
-        String[] args = {String.valueOf(id)};
-        return db.query(NOME_TABELA, colunas, where, args, null, null, null);
+    public int excluirPersonagem(long id) {
+        abrir();
+        return db.delete(NOME_TABELA, KEY_ID + " = ?", new String[]{String.valueOf(id)});
     }
-
 }

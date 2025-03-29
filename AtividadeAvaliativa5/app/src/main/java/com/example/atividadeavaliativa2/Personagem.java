@@ -1,6 +1,8 @@
 package com.example.atividadeavaliativa2;
 
-public class Personagem {
+import java.io.Serializable;
+
+public class Personagem implements Serializable {
     private long id;
     private String nome;
     private int forca;
@@ -17,7 +19,6 @@ public class Personagem {
         this.classe = classe;
     }
 
-    // Getters e setters para todos os campos
     public long getId() {
         return id;
     }
@@ -42,5 +43,3 @@ public class Personagem {
         return classe;
     }
 }
-
-
