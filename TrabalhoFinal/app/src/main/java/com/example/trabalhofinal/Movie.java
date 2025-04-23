@@ -8,9 +8,11 @@ public class Movie {
     private String overview;
     private String release_date;
     private String poster_path;
+    private String first_air_date;
+    private String name;
 
     public String getTitle() {
-        return title;
+        return title != null ? title : name; // name é para séries e title para filmes
     }
 
     public String getOverview() {
@@ -18,7 +20,7 @@ public class Movie {
     }
 
     public String getReleaseDate() {
-        return release_date;
+        return release_date != null ? release_date : first_air_date; // first_air_date é para séries e release_date para filmes
     }
 
     public String getPosterPath() {
