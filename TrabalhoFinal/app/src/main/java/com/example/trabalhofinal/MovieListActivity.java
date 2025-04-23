@@ -70,7 +70,7 @@ public class MovieListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
-                Toast.makeText(MovieListActivity.this, "Falha na conexão", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MovieListActivity.this, "Falha na conexão" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
